@@ -1,44 +1,25 @@
-import React, { Component } from 'react';
-import Hello from './components/Hello';
-import Greet from './components/Greet';
-import Message from './components/Message';
-import Counter from './components/Counter';
-import Navbar from './components/navbar';
-import ProductList from './components/ProductList';
+import React from "react";
+import { ThemeProvider } from "@material-ui/core/styles";
+import { theme } from "./utils/theme";
+import "./assets/css/style.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { BrowserRouter } from "react-router-dom";
+import { MainNavigation } from "./components/MainNavigation";
+import loader from "../src/assets/images/loader.gif";
 
-function App() {
-  const productList = [
-    {price: 99099 ,
-      name:"Iphone",
-      quantity : 0
-    },
-    {price: 999 ,
-      name:"readme note",
-      quantity : 0
-    }
-  ]
+const App = () => {
   return (
-    <>
-    {/* <Navbar title="navbar"/> */}
-    <h2>hello</h2>
-    {/* <main className='container'>
-      <ProductList productList={productList}/>
-    </main> */}
-    {/* <Footer /> */}
-
-    <div>
-  <Button variant="text" startIcon={<ShoppingCartRounded />}>
-    Add to Cart
-  </Button>
-  <Button variant="contained" startIcon={<ShoppingCartRounded />}>
-    Add to Cart
-  </Button>
-  <Button variant="outlined" startIcon={<ShoppingCartRounded />}>
-    Add to Cart
-  </Button>
-</div>
-    </>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <div className="loader-wrapper">
+          <img src={loader} alt="loader" />
+        </div>
+        <MainNavigation />
+      </BrowserRouter>
+      <ToastContainer />
+    </ThemeProvider>
   );
-}
+};
 
 export default App;

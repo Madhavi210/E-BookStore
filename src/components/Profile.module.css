@@ -1,0 +1,7 @@
+/* this css only apply on perticular element not globally */
+/* but this is outdated method */
+/* we can use material ui instead of this */
+
+.heading{
+    color: red;
+}
