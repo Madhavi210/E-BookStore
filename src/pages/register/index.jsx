@@ -40,7 +40,7 @@ const Register = () => {
 
   // useEffect(() => {
   //   if (roleList.length) return;
-  //   // getRoles();
+  //   getRoles();
   // }, [roleList]);
 
   // const getRoles = () => {

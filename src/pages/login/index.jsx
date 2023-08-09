@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { loginStyle } from "./style";
 import {
   Breadcrumbs,
@@ -15,9 +15,11 @@ import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import authService from "../../service/auth.service";
 import { toast } from "react-toastify";
+import { useAuthContext } from "../../context/auth";
 
 export const Login = () => {
   const navigate = useNavigate();
+  const authContext = useAuthContext();
 
   const initialValues = {
     email: "",
@@ -38,7 +40,7 @@ export const Login = () => {
   const onSubmit = (data) => {
     authService.login(data).then((res) => {
       toast.success("Login successfully");
-      console.log("result", res);
+      authContext.setUser(res);
     });
   };
 

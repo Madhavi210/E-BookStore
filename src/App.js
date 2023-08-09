@@ -7,18 +7,27 @@ import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter } from "react-router-dom";
 import { MainNavigation } from "./components/MainNavigation";
 import loader from "../src/assets/images/loader.gif";
+import { Footer } from "./components/footer";
+import { AuthWrapper } from "./context/auth";
+import Header from "./components/header";
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <div className="loader-wrapper">
-          <img src={loader} alt="loader" />
-        </div>
-        <MainNavigation />
-      </BrowserRouter>
-      <ToastContainer />
-    </ThemeProvider>
+    <BrowserRouter>
+      <AuthWrapper>
+        <ThemeProvider theme={theme}>
+          <div className="loader-wrapper">
+            <img src={loader} alt="loader" />
+          </div>
+          <Header />
+          <main>
+            <MainNavigation />
+          </main>
+          <Footer />
+          <ToastContainer />
+        </ThemeProvider>
+      </AuthWrapper>
+    </BrowserRouter>
   );
 };
 
