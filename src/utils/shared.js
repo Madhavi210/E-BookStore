@@ -55,9 +55,7 @@ const NavigationItems = [
 ];
 
 const hasAccess = (pathname, user) => {
-  const navItem = NavigationItems.find((navItem) =>
-    pathname.includes(navItem.route)
-  );
+  const navItem = NavigationItems.find((x) => pathname.includes(x.route));
   if (navItem) {
     return (
       !navItem.access ||
